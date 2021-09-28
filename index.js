@@ -22,10 +22,10 @@ router.get("/actors/:monkey", async (ctx) => {
 });
 
 router.get("/films/:id", async (ctx) => {
-  const { title, year, rating, length, summary } = await getFilmById(
+  const { title, year, rating, length, summary, actors } = await getFilmById(
     ctx.params.id
   );
-  ctx.body = { title, year, rating, length, summary };
+  ctx.body = { title, year, rating, length, summary, actors };
 });
 
 app.use(koaLogger());
