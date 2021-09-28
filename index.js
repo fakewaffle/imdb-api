@@ -21,7 +21,7 @@ router.get("/actors/:monkey", async (ctx) => {
   };
 });
 
-router.get("/films/:id", async (ctx, next) => {
+router.get("/films/:id", async (ctx) => {
   const { title, year, rating, length, summary } = await getFilmById(
     ctx.params.id
   );
