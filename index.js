@@ -8,13 +8,6 @@ const { getTextContentForXPath } = require("./lib/get-selector");
 const app = new Koa();
 const router = new Router();
 
-// async function getTextContentForXPath(xpath, page) {
-//   await page.waitForXPath(xpath);
-//   const elHandle = await page.$x(xpath);
-
-//   return await page.evaluate((el) => el.textContent, elHandle[0]);
-// }
-
 // https://www.imdb.com/title/tt1396484
 // https://www.imdb.com/title/tt7349950
 router.get("/films/:id", async (ctx, next) => {
