@@ -4,6 +4,7 @@ const koaLogger = require("koa-logger");
 const bodyParser = require("koa-bodyparser");
 const puppeteer = require("puppeteer");
 const { getTextContentForXPath } = require("./lib/get-selector");
+const { getActorById } = require("./lib/actors");
 
 const app = new Koa();
 const router = new Router();
@@ -11,21 +12,12 @@ const router = new Router();
 // https://www.imdb.com/title/tt1396484
 // https://www.imdb.com/title/tt7349950
 // https://www.imdb.com/name/nm0803889/?ref_=tt_cl_t_1
-router.get("/actors/:id", async (ctx) => {
-  const url = `https://www.imdb.com/name/${ctx.params.id}/?ref_=tt_cl_t_1`;
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+router.get("/actors/:monkey", async (ctx) => {
+  const actor = await getActorById(ctx.params.monkey);
 
-  await page.goto(url);
-
-  const actorName = await getTextContentForXPath(
-    '//td[contains(@class, "name-overview") and not(contains(@id, "overview"))]/h1/span',
-    page
-  );
-
-  ctx.body = { actorName };
-  await browser.close();
+  ctx.body = { actor };
 });
+
 router.get("/films/:id", async (ctx, next) => {
   const url = `https://www.imdb.com/title/${ctx.params.id}/`;
 
