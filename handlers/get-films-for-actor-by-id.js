@@ -1,14 +1,11 @@
-const {createNewPage, getTextContentForMultipleXPath} = require("../lib")
+const { createNewPage, getTextContentForMultipleXPath } = require("../lib");
 
 module.exports = async (id) => {
-    
-    const url = `https://imdb.com/name/${id}`
-    const page = await createNewPage()
-    await page.goToUrl(url)
+  const url = `https://imdb.com/name/${id}`;
+  const page = await createNewPage();
+  await page.goToUrl(url);
 
-    const actorFilms = getTextContentForMultipleXPath(
-        
-    )
+  const actorFilms = getTextContentForMultipleXPath();
 
-    return actorFilms
-}
+  return actorFilms;
+};

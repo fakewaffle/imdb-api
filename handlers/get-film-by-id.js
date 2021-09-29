@@ -30,5 +30,5 @@ module.exports = async (id) => {
     page
   );
 
-  return { title, year, rating, length };
+  return { title, year, rating, length, summary };
 };
