@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getFilmById should get a film 1`] = `
+Object {
+  "length": "2h 15min",
+  "rating": "R",
+  "title": "It",
+  "year": 2017,
+}
+`;

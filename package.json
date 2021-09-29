@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "develop": "nodemon"
+    "develop": "nodemon",
+    "watch-test": "jest --watchAll"
   },
   "jest": {
     "testTimeout": 15000
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^10.1.1",
+    "async": "^3.2.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-logger": "^3.2.1",
